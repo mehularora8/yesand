@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom gradient background */
+.bg-custom-gradient {
+  /* background: linear-gradient(to bottom, #FFF2F2, #FFF8D6); */
+  background: #FFF8D6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes smoothFadeInAndMove {
+  0% { 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  25% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1);
+  }
+  75% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translate(-50%, calc(-50vh + 2rem)) scale(0.6);
+  }
+}
+
+@keyframes instructionsFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.animate-smoothFadeInAndMove {
+  animation: smoothFadeInAndMove 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.animate-instructionsFadeIn {
+  animation: instructionsFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.pixel-font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom focus styles */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* System-wide transition */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
