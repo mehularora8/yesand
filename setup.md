@@ -68,10 +68,8 @@ Browser (WebRTC Client) ←→ Vercel API Routes ←→ OpenAI Realtime API
 ### Key Components
 
 - **`api/session.js`**: Vercel API route that generates ephemeral tokens
-- **`api/health.js`**: Health check endpoint
 - **`src/services/webrtcService.ts`**: WebRTC service class for managing connections
 - **`src/components/WebRTCDemo.tsx`**: React component demonstrating the service
-- **`vercel.json`**: Vercel configuration for API routes and CORS
 
 ### Security
 
