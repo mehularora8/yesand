@@ -45,7 +45,7 @@ const VoiceCircle: React.FC = () => {
   const voiceState = getVoiceState();
 
   const getCircleClasses = () => {
-    const baseClasses = "relative flex items-center justify-center rounded-full transition-all duration-500 cursor-pointer";
+    const baseClasses = "relative flex items-center justify-center rounded-full transition-all duration-500 cursor-pointer border-2 border-rose-900";
     
     switch (voiceState) {
       case 'idle':
@@ -83,7 +83,7 @@ const VoiceCircle: React.FC = () => {
   const getStatusText = () => {
     switch (voiceState) {
       case 'idle':
-        return isConnected ? 'Connected' : 'Disconnected';
+        return isConnected ? 'Connected' : 'Ready to start';
       case 'connecting':
         return 'Connecting...';
       case 'listening':
@@ -109,7 +109,7 @@ const VoiceCircle: React.FC = () => {
       </div>
       
       {/* Status text */}
-      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-medium text-title min-w-48 flex items-center justify-center">
+      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-light min-w-48 flex items-center justify-center text-cyan-800">
         {getStatusText()}
       </div>
     </div>
