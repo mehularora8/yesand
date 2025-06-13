@@ -4,7 +4,7 @@ import { AppProvider } from './contexts/AppContext';
 
 const AppContent: React.FC = () => {
   const [animationPhase, setAnimationPhase] = useState<'loading' | 'transitioning' | 'complete'>('loading');
-  const [showInstructions, setShowInstructions] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     // Start transition phase after animation begins
@@ -16,7 +16,7 @@ const AppContent: React.FC = () => {
     const completeTimer = setTimeout(() => {
       setAnimationPhase('complete');
       // Show instructions at the same time as main content
-      setShowInstructions(true);
+      setShowContent(true);
     }, 2500);
 
     return () => {
@@ -29,7 +29,7 @@ const AppContent: React.FC = () => {
     <div className="min-h-screen bg-custom-gradient relative overflow-hidden">
       {/* Animated title - always present but positioned differently */}
       <h1 
-        className={`flex items-center justify-center gap-3 text-5xl pixel-font text-title z-10 p-4 ${
+        className={`flex items-center justify-center gap-3 text-5xl pixel-font text-indicator-red z-10 p-4 ${
           animationPhase === 'loading' 
             ? 'animate-smoothFadeInAndMove' 
             : animationPhase === 'transitioning'
@@ -40,17 +40,13 @@ const AppContent: React.FC = () => {
         <img 
           src="/assets/mushroom.svg" 
           alt="mushroom" 
-          className={`${
-            animationPhase === 'loading' ? 'w-12 h-12' : 'w-8 h-8'
-          } transition-all duration-700`}
+          className='w-12 h-12 transition-all duration-700'
         />
         yes and
         <img 
           src="/assets/mushroom.svg" 
           alt="mushroom" 
-          className={`${
-            animationPhase === 'loading' ? 'w-12 h-12' : 'w-8 h-8'
-          } transition-all duration-700`}
+          className='w-12 h-12 transition-all duration-700'
         />
       </h1>
 
@@ -60,14 +56,14 @@ const AppContent: React.FC = () => {
           animationPhase === 'loading' ? 'opacity-0' : 'opacity-100'
         }`}
       >
-        {showInstructions && (
+        {showContent && (
           <div className="flex flex-col items-center">
             {/* Instructions */}
             <div className="mb-16 text-center animate-instructionsFadeIn max-w-md">
               <div className="text-left">
-                <h3 className="text-2xl font-semibold mb-4 text-center text-amber-800">Improvise. Adapt. Build worlds.</h3>
-                <div className="text-md text-center text-gray-700">
-                  Hit the circle to start a conversation. Dive right into it with a topic you want to discuss. No need for pleasantries!
+                <h3 className="text-2xl font-semibold mb-4 text-center text-rose-900">Improvise. Adapt. Build worlds.</h3>
+                <div className="text-md text-center text-pink-900 leading-10">
+                  Start a conversation. Build a story by responding with 'yes, and...'. Dive right into it with a topic you want to discuss. No need for pleasantries!
                 </div>
               </div>
             </div>
@@ -75,6 +71,16 @@ const AppContent: React.FC = () => {
         </div>
         )}
       </main>
+
+      {/* Footer */}
+      {showContent && <footer className="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end font-light text-xs text-rose-900">
+        <div className="max-w-xs">
+        {/* TODO: for funsies */}
+        </div>
+        <div className="max-w-xs text-right">
+        <p>Suggestions? <a href="https://mehularora.me" target="_blank" className="underline font-semibold">Reach out!</a></p>
+        </div>
+      </footer>}
     </div>
   );
 };
