@@ -42,7 +42,7 @@ const AppContent: React.FC = () => {
           alt="mushroom" 
           className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-all duration-700'
         />
-        yes and
+        <div className="text-center">yes and</div>
         <img 
           src="/assets/mushroom.svg" 
           alt="mushroom" 
