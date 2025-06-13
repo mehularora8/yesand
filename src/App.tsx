@@ -63,7 +63,7 @@ const AppContent: React.FC = () => {
               <div className="text-left">
                 <h3 className="text-2xl font-semibold mb-4 text-center text-rose-900">Improvise. Adapt. Build worlds.</h3>
                 <div className="text-md text-center text-pink-900 leading-10">
-                  Start a conversation. Build a story by responding with 'yes, and...'. Dive right into it with a topic you want to discuss. No need for pleasantries!
+                  Start a conversation with any idea. Then, your partner will respond with 'Yes, and...', adding something new to your idea. Keep building the story together! <br /> <br /> Example: 'I'm opening a restaurant' → 'Yes, and it only serves food that glows in the dark!'
                 </div>
               </div>
             </div>
