@@ -66,17 +66,17 @@ const VoiceCircle: React.FC = () => {
   const getIcon = () => {
     switch (voiceState) {
       case 'idle':
-        return <div className="text-6xl">🎤</div>;
+        return <div className="text-4xl sm:text-5xl md:text-6xl">🎤</div>;
       case 'connecting':
-        return <div className="text-6xl animate-pulse">📡</div>;
+        return <div className="text-4xl sm:text-5xl md:text-6xl animate-pulse">📡</div>;
       case 'listening':
-        return <div className="text-6xl">🎙️</div>;
+        return <div className="text-4xl sm:text-5xl md:text-6xl">🎙️</div>;
       case 'speaking':
-        return <div className="text-6xl">🔊</div>;
+        return <div className="text-4xl sm:text-5xl md:text-6xl">🔊</div>;
       case 'error':
-        return <div className="text-6xl">🤷‍♀️</div>;
+        return <div className="text-4xl sm:text-5xl md:text-6xl">🤷‍♀️</div>;
       default:
-        return <div className="text-6xl">🤷‍♀️</div>;
+        return <div className="text-4xl sm:text-5xl md:text-6xl">🤷‍♀️</div>;
     }
   };
 
@@ -101,15 +101,14 @@ const VoiceCircle: React.FC = () => {
   return (
     <div className="relative">
       <div 
-        className={getCircleClasses()}
-        style={{ width: '180px', height: '180px' }}
+        className={`${getCircleClasses()} w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48`}
         onClick={handleClick}
       >
         {getIcon()}
       </div>
       
       {/* Status text */}
-      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-light min-w-48 flex items-center justify-center text-cyan-800">
+      <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 text-xs sm:text-sm font-light min-w-32 sm:min-w-48 flex items-center justify-center text-cyan-800">
         {getStatusText()}
       </div>
     </div>
